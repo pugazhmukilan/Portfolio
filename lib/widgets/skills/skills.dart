@@ -14,38 +14,43 @@ class SkillWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        // Image inside a rounded container
-        Container(
-          width: 60, // Set width and height for the image container
-          height: 60,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: Colors.black12),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0), // Padding inside the container
-            child: Image.asset(imagePath), // Load image from asset
-          ),
-        ),
-        const SizedBox(width: 10), // Space between image and text
-        // Title and Year
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+    double kwidth = MediaQuery.of(context).size.width;
+    return Container(
+      
+      child: Row(
+        children: [
+          // Image inside a rounded container
+          Container(
+            width: kwidth>700 ? 80:60, // Set width and height for the image container
+            height: kwidth>700 ? 80:60,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(color: Colors.black12),
             ),
-            const SizedBox(height: 5),
-            Text(
-              year,
-              style: TextStyle(color: Colors.grey, fontSize: 14),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // Padding inside the container
+              child: Image.asset(imagePath), // Load image from asset
             ),
-          ],
-        ),
-      ],
+          ),
+          const SizedBox(width: 10), // Space between image and text
+          // Title and Year
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 5),
+              Text(
+                year,
+                style: TextStyle(color: Colors.grey, fontSize: 14),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

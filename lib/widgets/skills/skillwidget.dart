@@ -19,7 +19,7 @@ class SkillsGridPage extends StatelessWidget {
     {'image': 'assets/images/fastapi.png', 'title': 'Fast API', 'year': '2024'},
     {'image': 'assets/images/sklearn.png', 'title': 'Sklearn', 'year': '2024'},
     {'image': 'assets/images/numpy.png', 'title': 'Numpy', 'year': '2024'},
-    {'image': 'assets/images/postgresql.png', 'title': 'Postgre SQL', 'year': '2024'},
+    {'image': 'assets/images/postgresql.png', 'title': 'Postgres', 'year': '2024'},
   ];
 
   @override

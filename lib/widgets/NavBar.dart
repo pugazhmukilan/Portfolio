@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/Text_Styles.dart'; // Ensure your text styles are set up
+ // Import the NavButton widget
 
 class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+  final VoidCallback onHomeTap;
+  final VoidCallback onAboutMeTap;
+  final VoidCallback onSkillsTap;
+  final VoidCallback onProjectsTap;
+
+  const NavBar({
+    super.key,
+    required this.onHomeTap,
+    required this.onAboutMeTap,
+    required this.onSkillsTap,
+    required this.onProjectsTap,
+  });
 
   @override
   State<NavBar> createState() => _NavBarState();
@@ -16,7 +28,10 @@ class _NavBarState extends State<NavBar> {
         height: 50,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [const Color.fromARGB(255, 241, 227, 248), const Color.fromARGB(255, 245, 241, 227)],
+            colors: [
+              const Color.fromARGB(255, 241, 227, 248),
+              const Color.fromARGB(255, 245, 241, 227)
+            ],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
@@ -26,16 +41,13 @@ class _NavBarState extends State<NavBar> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0), // Adjust padding
           child: Row(
-            
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min, // Evenly space out the buttons
             children: [
-              NavButton(onpressed: () => print("pressed Home"), text: "Home"),
-              NavButton(onpressed: () => print("pressed About me"), text: "About me"),
-              NavButton(onpressed: () => print("pressed Skills"), text: "Skills"),
-              NavButton(onpressed: () => print("pressed Projects"), text: "Projects"),
-              NavButton(onpressed: () => print("pressed Contact"), text: "Contact"),
-              
+              NavButton(onPressed: widget.onHomeTap, text: 'Home'),
+              NavButton(onPressed: widget.onAboutMeTap, text: 'About Me'),
+              NavButton(onPressed: widget.onSkillsTap, text: 'Skills'),
+              NavButton(onPressed: widget.onProjectsTap, text: 'Projects'),
             ],
           ),
         ),
@@ -44,18 +56,20 @@ class _NavBarState extends State<NavBar> {
   }
 }
 
+
+
 class NavButton extends StatelessWidget {
-  final Function() onpressed;
+  final VoidCallback onPressed;
   final String text;
 
-  const NavButton({super.key, required this.onpressed, required this.text});
+  const NavButton({super.key, required this.onPressed, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: GestureDetector(
-        onTap: onpressed,
+        onTap: onPressed,
         child: Text(
           text,
           style: KjostRegular.copyWith(fontSize: 18), // Adjust font size
