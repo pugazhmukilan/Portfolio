@@ -13,7 +13,6 @@ class _SkillsPagesState extends State<SkillsPages> {
   @override
   Widget build(BuildContext context) {
     double kwidth = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     final List<Map<String, String>> skills = [
       {'image': 'assets/icons/python.png', 'title': 'Python', 'year': '2020'},
@@ -32,11 +31,7 @@ class _SkillsPagesState extends State<SkillsPages> {
     ];
 
     return Container(
-      
       padding: EdgeInsets.symmetric(horizontal: 16.0),
-      constraints: BoxConstraints(
-         // Ensure minimum height
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -50,26 +45,21 @@ class _SkillsPagesState extends State<SkillsPages> {
           SizedBox(height: 20),
           Center(
             child: SizedBox(
-              height:400,
-              width:800,
+              height: 400,
+              width: 800,
               child: GridView.builder(
                 itemCount: skills.length,
-                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: kwidth >800 ? 4 :3, // Adjust the number of columns as needed
-                  crossAxisSpacing:20,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: kwidth > 800 ? 4 : 3, // Adjust the number of columns as needed
+                  crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
                   childAspectRatio: 2.5, // Adjust to control the shape of each cell
                 ),
                 itemBuilder: (context, index) {
-                  return Wrap(
-                    
-                    children:[Expanded(
-                      child: SkillWidget(
-                                        imagePath: skills[index]['image']!,
-                                        title: skills[index]['title']!,
-                                        year: skills[index]['year']!,
-                                      ),
-                    ),]
+                  return SkillWidget(
+                    imagePath: skills[index]['image']!,
+                    title: skills[index]['title']!,
+                    year: skills[index]['year']!,
                   );
                 },
               ),

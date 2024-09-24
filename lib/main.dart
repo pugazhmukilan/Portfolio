@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/ScollingPage.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); 
+  Future.delayed(Duration(seconds: 4));
   runApp( MainApp());
 }
 

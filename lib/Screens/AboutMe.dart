@@ -16,27 +16,25 @@ class _AboutMeState extends State<AboutMe> {
     double height = MediaQuery.of(context).size.height;
     double iconWidth = 60.0; // Set a fixed width for icons
 
-    return Wrap(
-      children: [Container(
-        //height:pagewidth,
-        child: Column(
-          children: [
-            
-            // const SizedBox(height:30),
-            Text("About Me",style:AppTextStyles.KjosefinSansSemiBold.copyWith(fontSize:kwidth>1400? 250: kwidth*0.2,color:Colors.black.withOpacity(0.2))),
-            SizedBox(height:20),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Image.asset("images/aboutme.png",scale:2),
-            ),
-            
-            
-              
+    return Container(
+      //height:pagewidth,
+      child: Column(
+        children: [
+          
+          // const SizedBox(height:30),
+          Text("About Me",style:AppTextStyles.KjosefinSansSemiBold.copyWith(fontSize:kwidth>1400? 250: kwidth*0.2,color:Colors.black.withOpacity(0.2))),
+          SizedBox(height:20),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Image.asset("images/aboutme.png",scale:2),
+          ),
+          
+          
             
           
-          ],
-        ),
-      ),]
+        
+        ],
+      ),
     );
 
   
