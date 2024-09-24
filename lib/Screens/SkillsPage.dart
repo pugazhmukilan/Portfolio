@@ -55,7 +55,7 @@ class _SkillsPagesState extends State<SkillsPages> {
               child: GridView.builder(
                 itemCount: skills.length,
                 gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: kwidth >700 ? 4 :3, // Adjust the number of columns as needed
+                  crossAxisCount: kwidth >800 ? 4 :3, // Adjust the number of columns as needed
                   crossAxisSpacing:20,
                   mainAxisSpacing: 20,
                   childAspectRatio: 2.5, // Adjust to control the shape of each cell
