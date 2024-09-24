@@ -39,7 +39,7 @@ class Project extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     if (isMobile) _buildImage(), // Show image on top for mobile
                     if (isMobile) const SizedBox(height: 16.0),
