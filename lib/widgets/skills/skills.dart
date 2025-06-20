@@ -16,16 +16,17 @@ class SkillWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double kwidth = MediaQuery.of(context).size.width;
     return Container(
-      
+      margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 1), // Margin around the container
       child: Row(
         children: [
           // Image inside a rounded container
           Container(
-            width: kwidth>700 ? 80:60, // Set width and height for the image container
-            height: kwidth>700 ? 80:60,
+            width: kwidth>700 ? 100:80, // Set width and height for the image container
+            height: kwidth>700 ? 100:80,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.black12),
+              border: Border.all(color: Colors.transparent),
+              
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0), // Padding inside the container

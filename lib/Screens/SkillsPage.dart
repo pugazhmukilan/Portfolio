@@ -28,6 +28,10 @@ class _SkillsPagesState extends State<SkillsPages> {
       {'image': 'assets/icons/sklearn.png', 'title': 'Sklearn', 'year': '2024'},
       {'image': 'assets/icons/numpy.png', 'title': 'Numpy', 'year': '2024'},
       {'image': 'assets/icons/postgres.png', 'title': 'Postgres', 'year': '2024'},
+      {'image': 'assets/icons/mlflow.png', 'title': 'ML Flow', 'year': '2025'},
+      {'image': 'assets/icons/langchain.png', 'title': 'LangChain', 'year': '2025'},
+      {'image': 'assets/icons/fastapi.png', 'title': 'FastApi', 'year': '2024'},
+      {'image': 'assets/icons/huggingface.png', 'title': 'HuggingFace', 'year': '2025'},
     ];
 
     return Container(
@@ -45,7 +49,7 @@ class _SkillsPagesState extends State<SkillsPages> {
           SizedBox(height: 20),
           Center(
             child: SizedBox(
-              height: 400,
+              height: 600,
               width: 800,
               child: GridView.builder(
                 itemCount: skills.length,

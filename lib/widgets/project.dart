@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marquee_list/marquee_list.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Project extends StatelessWidget {
   final String image;
@@ -7,6 +8,7 @@ class Project extends StatelessWidget {
   final String content;
   final List<String> tags;
   final bool imageOnRight;
+  final String link;
 
   const Project({
     super.key,
@@ -15,6 +17,7 @@ class Project extends StatelessWidget {
     required this.content,
     required this.tags,
     this.imageOnRight = false,
+    required this.link ,
   });
 
   @override
@@ -35,11 +38,12 @@ class Project extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.black),
+                  border: Border.all(color: Colors.grey),
                 ),
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     if (isMobile) _buildImage(), // Show image on top for mobile
                     if (isMobile) const SizedBox(height: 16.0),
@@ -51,7 +55,28 @@ class Project extends StatelessWidget {
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                            child: _buildTextContent(context),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                _buildTextContent(context),
+                                GestureDetector(
+                                    onTap: () {
+                                      _launchURL(link);
+                                    },
+                                    child: Container(
+                                     width: 60,
+                                     height:30,
+                                     decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.black,
+                                      
+                                     ),
+                                      child: Center(child: Text("Github",style: TextStyle(fontSize: 12,color: Colors.white)))
+                                    ),
+                    )
+                              ],
+                            ),
                           ),
                         ),
                         if (imageOnRight) _buildImage(),
@@ -60,6 +85,7 @@ class Project extends StatelessWidget {
                     if (!isMobile) const SizedBox(height: 16.0),
                     //if (!isMobile) _buildTags(context), // Show tags horizontally for larger screens
                     if (isMobile) _buildTags(context), // Show tags horizontally for mobile
+                    
                   ],
                 ),
               ),
@@ -69,7 +95,14 @@ class Project extends StatelessWidget {
       ),
     );
   }
-
+void _launchURL(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
   // Widget to build the image
   Widget _buildImage() {
     return Image.asset(
@@ -103,7 +136,7 @@ class Project extends StatelessWidget {
           textAlign: TextAlign.justify,
         ),
         SizedBox(height:10),
-        _buildTags(context),
+        //8351_buildTags(context),
       ],
     );
   }
