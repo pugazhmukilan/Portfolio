@@ -7,9 +7,11 @@ environment:
   sdk: '>=3.5.0-214.0.dev <4.0.0'
 
 dependencies:
+  dio: ^5.8.0+1
   flutter:
     sdk: flutter
   marquee_list: ^1.0.0
+  path_provider: ^2.1.5
   rive: ^0.13.13
   url_launcher: ^6.3.0
 
@@ -25,6 +27,7 @@ flutter:
   assets:
 
     - assets/images/  
+    - assets/images/meImage.png
     - assets/icons/ 
     - assets/floating/
     - assets/gradients/backgroundgif.riv

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marquee_list/marquee_list.dart';
 import 'package:portfolio/constants/Text_Styles.dart';
 import 'package:portfolio/widgets/CheckResumeButton.dart';
-
+String link = "https://drive.google.com/file/d/130xy-7rWrGTTsKs1;hebgJmG14YQmygSX/view?usp=drive_link";
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -14,16 +14,23 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    // double height = MediaQuery.of(context).size.height;
     double iconWidth = 60.0; // Set a fixed width for icons
 
     return Container(
       //height:pagewidth,
       child: Column(
         children: [
-          SizedBox(height: 20),
-          CircleAvatar(radius: 50, backgroundColor: Colors.grey),
-          SizedBox(height: 8),
+          const SizedBox(height: 20),
+           
+
+          CircleAvatar(
+            radius: 150,
+            backgroundColor: Colors.grey.shade300,
+            backgroundImage: AssetImage("assets/images/meImagesmall.png"),
+          ),
+
+          const SizedBox(height: 8),
           Center(
             child: Text(
               "Pugazh Mukilan",

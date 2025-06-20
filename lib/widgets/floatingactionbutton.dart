@@ -8,41 +8,7 @@ class SocialMediaFAB extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  //   return FloatingActionButton.extended(
-  //     onPressed: () {}, // You can keep this empty or handle other logic
-  //      // For a rectangular shape
-      
-  //     label:const  Column(
-  //       mainAxisSize: MainAxisSize.min, // Ensures the button only takes the space it needs
-  //       children: [
-          
-          
-  //          SocialMediaWidget(icon:'assets/floating/github.png',url:'https://github.com/pugazhmukilan'),
-  //          SocialMediaWidget(icon:'assets/floating/linkedin.png',url:'https://www.linkedin.com/in/pugazh-mukilan-922206251/'),
-
-  //          SocialMediaWidget(icon:'assets/floating/leetcode.png',url:'https://leetcode.com/u/pugazhmukilanoffical2004/'),
-  //       ],
-  //     ),
-  //   );
-  // }
-
-    //   return RawMaterialButton(
-    //   onPressed: () {},
-    //   fillColor: Colors.blue,
-    //   shape: const CircleBorder(),
-    //   // constraints: BoxConstraints.tightFor(
-    //   //   width: 70.0,
-    //   //   height: 140.0, // set custom height
-    //   // ),
-    //   child: Column(
-    //     mainAxisAlignment: MainAxisAlignment.center,
-    //     children: [
-    //       SocialMediaWidget(icon:'assets/floating/leetcode.png',url:'https://leetcode.com/u/pugazhmukilanoffical2004/'),
-    //       SocialMediaWidget(icon:'assets/floating/github.png',url:'https://github.com/pugazhmukilan'),
-    //       SocialMediaWidget(icon:'assets/floating/linkedin.png',url:'https://www.linkedin.com/in/pugazh-mukilan-922206251/'),
-    //     ],
-    //   )
-    // );   
+ 
 
     return const Stack(
         children: [
