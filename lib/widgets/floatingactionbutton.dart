@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/Colors.dart';
 import 'package:url_launcher/url_launcher.dart';
  // For launching URLs
 
@@ -32,7 +33,7 @@ class SocialMediaFAB extends StatelessWidget {
   
 }
 
-class SocialMediaWidget extends StatelessWidget {
+class SocialMediaWidget extends StatefulWidget {
   const SocialMediaWidget({
     super.key,
     required this.icon,
@@ -43,17 +44,39 @@ class SocialMediaWidget extends StatelessWidget {
   final String url;
 
   @override
+  State<SocialMediaWidget> createState() => _SocialMediaWidgetState();
+}
+
+class _SocialMediaWidgetState extends State<SocialMediaWidget> {
+  bool _isHovered = false;
+
+  @override
   Widget build(BuildContext context) {
-    return IconButton(
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: _isHovered ? AppColors.primary.withOpacity(0.15) : Colors.transparent,
+          border: Border.all(
+            color: _isHovered ? AppColors.primary : Colors.transparent,
+            width: 1,
+          ),
+        ),
+        child: IconButton(
           icon: SizedBox(
-            width: 40, // Set your desired width
-            height: 40, // Set your desired height
-            child: Image.asset(icon),
+            width: 32, // Set your desired width
+            height: 32, // Set your desired height
+            child: Image.asset(widget.icon),
           ),
           onPressed: () {
-            _launchURL(url);
+            _launchURL(widget.url);
           },
-        );
+        ),
+      ),
+    );
   }
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/Colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Project extends StatefulWidget {
@@ -39,12 +40,13 @@ class _ProjectState extends State<Project> {
         transform: Matrix4.translationValues(0, _isHovered ? -8 : 0, 0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: Colors.white,
+          color: AppColors.bg1,
+          border: Border.all(color: AppColors.primary.withOpacity(0.3)),
           boxShadow: [
             BoxShadow(
-              color: _isHovered 
-                  ? Colors.black.withOpacity(0.15) 
-                  : Colors.grey.withOpacity(0.1),
+              color: _isHovered
+                  ? AppColors.primary.withOpacity(0.25)
+                  : AppColors.bg2.withOpacity(0.5),
               spreadRadius: _isHovered ? 4 : 2,
               blurRadius: _isHovered ? 16 : 8,
               offset: Offset(0, _isHovered ? 8 : 3),
@@ -79,17 +81,15 @@ class _ProjectState extends State<Project> {
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
                     ),
-                    child: widget.image != null && widget.image!.isNotEmpty
-                        ? Image.asset(
+                    child: Image.asset(
                             widget.image!,
                             width: double.infinity,
                             height: imgH,
                             fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return _buildGitHubFallback(imgH);
-                            },
+                            // errorBuilder: (context, error, stackTrace) {
+                            //   return _buildGitHubFallback(imgH);
+                            // },
                           )
-                        : _buildGitHubFallback(imgH),
                   ),
 
                   // Content area
@@ -107,7 +107,7 @@ class _ProjectState extends State<Project> {
                             style: TextStyle(
                               fontSize: titleFs,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black87,
+                              color: AppColors.text,
                               height: titleLH,
                               letterSpacing: 0.2,
                             ),
@@ -125,7 +125,7 @@ class _ProjectState extends State<Project> {
                               style: TextStyle(
                                 fontSize: descFs,
                                 height: descLH,
-                                color: Colors.black.withOpacity(0.70),
+                                color: AppColors.textSecondary,
                               ),
                             ),
                           ),
@@ -138,7 +138,7 @@ class _ProjectState extends State<Project> {
                             style: TextStyle(
                               fontSize: isNarrow ? 11.5 : 12.0,
                               fontWeight: FontWeight.w600,
-                              color: Colors.black87,
+                              color: AppColors.text,
                               letterSpacing: 0.3,
                             ),
                           ),
@@ -160,15 +160,15 @@ class _ProjectState extends State<Project> {
                                       vertical: isNarrow ? 4 : 6,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: Colors.grey.shade200,
+                                      color: AppColors.bg2,
                                       borderRadius: BorderRadius.circular(14),
-                                      border: Border.all(color: Colors.grey.shade300, width: 1),
+                                      border: Border.all(color: AppColors.primary.withOpacity(0.4), width: 1),
                                     ),
                                     child: Text(
                                       tag,
                                       style: TextStyle(
                                         fontSize: isNarrow ? 10 : 11,
-                                        color: Colors.black87,
+                                        color: AppColors.textSecondary,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
@@ -187,18 +187,18 @@ class _ProjectState extends State<Project> {
                                 'assets/icons/githubicon.png',
                                 width: 18,
                                 height: 18,
-                                //color: Colors.white,
-                                errorBuilder: (context, error, stackTrace) {
-                                  return const Icon(Icons.code, size: 18, color: Colors.white);
-                                },
+                               
+                                // errorBuilder: (context, error, stackTrace) {
+                                //   return Icon(Icons.code, size: 18, color: AppColors.text);
+                                // },
                               ),
                               label: const Text(
                                 'View on GitHub',
                                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
                               ),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black87,
-                                foregroundColor: Colors.white,
+                                backgroundColor: AppColors.primary,
+                                foregroundColor: AppColors.text,
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                 padding: EdgeInsets.zero,
                                 elevation: _isHovered ? 4 : 2,
@@ -223,27 +223,18 @@ class _ProjectState extends State<Project> {
     return Container(
       width: double.infinity,
       height: height,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 241, 227, 248),
-            Color.fromARGB(255, 245, 241, 227),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
+      color: AppColors.bg2,
       child: Center(
         child: Image.asset(
           'assets/icons/github.png',
           width: height * 0.4,
           height: height * 0.4,
-          color: Colors.black.withOpacity(0.6),
+          color: AppColors.text.withOpacity(0.8),
           errorBuilder: (context, error, stackTrace) {
             return Icon(
               Icons.code,
               size: height * 0.4,
-              color: Colors.black.withOpacity(0.6),
+              color: AppColors.text.withOpacity(0.8),
             );
           },
         ),

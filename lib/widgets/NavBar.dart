@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/constants/Text_Styles.dart';
+import 'package:portfolio/constants/Colors.dart';
 import 'package:portfolio/constants/ScreenConstraints.dart';
+import 'package:portfolio/constants/Text_Styles.dart';
 
 class NavBar extends StatefulWidget {
   final VoidCallback onHomeTap;
@@ -40,15 +41,9 @@ class _NavBarState extends State<NavBar> {
       child: Container(
         height: 50,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              const Color.fromARGB(255, 241, 227, 248),
-              const Color.fromARGB(255, 245, 241, 227)
-            ],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-          ),
+          color: AppColors.bg1,
           borderRadius: BorderRadius.circular(50),
+          border: Border.all(color: AppColors.primary.withOpacity(0.5)),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -80,25 +75,19 @@ class _NavBarState extends State<NavBar> {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    const Color.fromARGB(255, 241, 227, 248),
-                    const Color.fromARGB(255, 245, 241, 227)
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                color: AppColors.bg1,
                 shape: BoxShape.circle,
+                border: Border.all(color: AppColors.primary.withOpacity(0.5)),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: AppColors.primary.withOpacity(0.2),
                     blurRadius: 8,
                     offset: Offset(0, 2),
                   ),
                 ],
               ),
               child: IconButton(
-                icon: Icon(Icons.menu, color: Colors.black87, size: 24),
+                icon: Icon(Icons.menu, color: AppColors.text, size: 24),
                 onPressed: () => _showMobileMenu(context),
                 tooltip: 'Menu',
                 padding: EdgeInsets.zero,
@@ -113,7 +102,7 @@ class _NavBarState extends State<NavBar> {
             style: KjostRegular.copyWith(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: AppColors.text,
             ),
           ),
         ),
@@ -140,28 +129,14 @@ Widget buildNavBarDrawer({
 }) {
   return Drawer(
     child: Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            const Color.fromARGB(255, 241, 227, 248),
-            const Color.fromARGB(255, 245, 241, 227)
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
+      color: AppColors.scaffoldbg,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  const Color.fromARGB(255, 241, 227, 248).withOpacity(0.8),
-                  const Color.fromARGB(255, 245, 241, 227).withOpacity(0.8)
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+              border: Border(
+                bottom: BorderSide(color: AppColors.primary.withOpacity(0.5)),
               ),
             ),
             child: Center(
@@ -170,7 +145,7 @@ Widget buildNavBarDrawer({
                 style: KjostRegular.copyWith(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black87,
+                  color: AppColors.text,
                 ),
               ),
             ),
@@ -225,12 +200,12 @@ Widget _buildNavDrawerItem({
   required VoidCallback onTap,
 }) {
   return ListTile(
-    leading: Icon(icon, color: Colors.black87),
+    leading: Icon(icon, color: AppColors.text),
     title: Text(
       text,
       style: KjostRegular.copyWith(
         fontSize: 16,
-        color: Colors.black87,
+        color: AppColors.text,
       ),
     ),
     onTap: onTap,
@@ -251,7 +226,7 @@ class NavButton extends StatelessWidget {
         onTap: onPressed,
         child: Text(
           text,
-          style: KjostRegular.copyWith(fontSize: 18),
+          style: KjostRegular.copyWith(fontSize: 18, color: AppColors.text),
         ),
       ),
     );

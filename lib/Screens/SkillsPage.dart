@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/Colors.dart';
 import 'package:portfolio/constants/Text_Styles.dart';
 import 'package:portfolio/constants/ScreenConstraints.dart';
 import 'package:portfolio/widgets/skills/skills.dart';
@@ -61,7 +62,7 @@ class _SkillsPagesState extends State<SkillsPages> {
                 tablet: 100,
                 desktop: 200,
               ),
-              color: Colors.black.withOpacity(0.2),
+              color: AppColors.text,
             ),
           ),
           

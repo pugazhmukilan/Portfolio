@@ -1,14 +1,13 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:portfolio/Screens/AboutMe.dart';
 import 'package:portfolio/Screens/Home.dart';
 import 'package:portfolio/Screens/ProjectsPage.dart';
 import 'package:portfolio/Screens/SkillsPage.dart';
+import 'package:portfolio/constants/Colors.dart';
 import 'package:portfolio/constants/ScreenConstraints.dart';
+import 'package:portfolio/widgets/Background_gradient.dart';
 import 'package:portfolio/widgets/NavBar.dart';
 import 'package:portfolio/widgets/floatingactionbutton.dart';
-import 'package:rive/rive.dart';
 
 class ScrollingPage extends StatefulWidget {
   const ScrollingPage({super.key});
@@ -40,11 +39,11 @@ class _ScrollingPageState extends State<ScrollingPage> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFFFFFFF),
+        backgroundColor: const Color.fromARGB(210, 15, 16, 19),
         floatingActionButton: SocialMediaFAB(),
         // Add drawer for mobile navigation
         endDrawer: Responsive.isMobile(context)
@@ -58,38 +57,7 @@ class _ScrollingPageState extends State<ScrollingPage> {
             : null,
         body: Stack(
           children: [
-            // Background animations at top right and bottom left
-            Positioned(
-              top: 0,
-              right: 0,
-              child: SizedBox(
-                width: width * 0.3,
-                height: 300,
-                child: ImageFiltered(
-                  imageFilter: ImageFilter.blur(sigmaX: 80.0, sigmaY: 80.0),
-                  child: RiveAnimation.asset(
-                    'assets/gradients/backgroundgif.riv',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-            
-            Positioned(
-              bottom: 0,
-              left: 0,
-              child: SizedBox(
-                width: width * 0.3,
-                height: 300,
-                child: ImageFiltered(
-                  imageFilter: ImageFilter.blur(sigmaX: 80.0, sigmaY: 80.0),
-                  child: RiveAnimation.asset(
-                    'assets/gradients/backgroundgif.riv',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
+            Background_gradient(),
       
             // Navbar fixed at the top of the screen
             Positioned(

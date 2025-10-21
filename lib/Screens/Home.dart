@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:marquee_list/marquee_list.dart';
-import 'package:portfolio/constants/Text_Styles.dart';
+import 'package:portfolio/constants/Colors.dart';
 import 'package:portfolio/constants/ScreenConstraints.dart';
+import 'package:portfolio/constants/Text_Styles.dart';
 import 'package:portfolio/widgets/CheckResumeButton.dart';
 
 String link = "https://drive.google.com/file/d/130xy-7rWrGTTsKs1;hebgJmG14YQmygSX/view?usp=drive_link";
@@ -25,10 +26,19 @@ class _HomeState extends State<Home> {
           SizedBox(height: Responsive.getValue(context, mobile: 20, tablet: 30, desktop: 40)),
 
           // Profile Avatar - Responsive sizing
-          CircleAvatar(
-            radius: Responsive.getValue(context, mobile: 80, tablet: 120, desktop: 150),
-            backgroundColor: Colors.grey.shade300,
-            backgroundImage: AssetImage("assets/images/meImagesmall.png"),
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: AppColors.primary,
+                width: 3,
+              ),
+            ),
+            child: CircleAvatar(
+              radius: Responsive.getValue(context, mobile: 80, tablet: 120, desktop: 150),
+              backgroundColor: Colors.transparent,
+              backgroundImage: AssetImage("assets/images/meImagesmall.png"),
+            ),
           ),
 
           SizedBox(height: Responsive.getValue(context, mobile: 16, tablet: 20, desktop: 24)),
@@ -38,6 +48,7 @@ class _HomeState extends State<Home> {
             child: Text(
               "Pugazh Mukilan",
               style: AppTextStyles.KjosefinSansRegular.copyWith(
+                color: AppColors.text,
                 fontSize: Responsive.getValue(context, mobile: 40, tablet: 80, desktop: 150),
               ),
               textAlign: TextAlign.center,
@@ -50,6 +61,7 @@ class _HomeState extends State<Home> {
           Text(
             "Building Software product and\nmaking life easy",
             style: AppTextStyles.KjostRegular.copyWith(
+              color: AppColors.textTertiary,
               fontSize: Responsive.getValue(context, mobile: 14, tablet: 16, desktop: 18),
             ),
             textAlign: TextAlign.center,

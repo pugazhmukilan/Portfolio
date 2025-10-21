@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/Colors.dart';
 import 'package:portfolio/constants/Text_Styles.dart';
 import 'package:portfolio/constants/ScreenConstraints.dart';
 
@@ -30,7 +31,7 @@ class _AboutMeState extends State<AboutMe> {
                 tablet: 100,
                 desktop: 200,
               ),
-              color: Colors.black.withOpacity(0.2),
+              color: AppColors.text,
             ),
           ),
           
@@ -75,6 +76,7 @@ class _AboutMeState extends State<AboutMe> {
                   style: AppTextStyles.KjosefinSansRegular.copyWith(
                     fontSize: Responsive.getValue(context, mobile: 24, tablet: 32, desktop: 40),
                     fontWeight: FontWeight.bold,
+                    color: AppColors.text,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -86,7 +88,7 @@ class _AboutMeState extends State<AboutMe> {
                   "I focus on creating intuitive user experiences with clean, efficient code.",
                   style: AppTextStyles.KjostRegular.copyWith(
                     fontSize: Responsive.getValue(context, mobile: 14, tablet: 16, desktop: 18),
-                    color: Colors.grey.shade700,
+                    color: AppColors.textSecondary,
                     height: 1.6,
                   ),
                   textAlign: TextAlign.center,
@@ -99,7 +101,7 @@ class _AboutMeState extends State<AboutMe> {
                   "I'm constantly learning and exploring new technologies to stay at the forefront of software development.",
                   style: AppTextStyles.KjostRegular.copyWith(
                     fontSize: Responsive.getValue(context, mobile: 14, tablet: 16, desktop: 18),
-                    color: Colors.grey.shade700,
+                    color: AppColors.textSecondary,
                     height: 1.6,
                   ),
                   textAlign: TextAlign.center,

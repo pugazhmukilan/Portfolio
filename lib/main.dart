@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/ScollingPage.dart';
+import 'package:portfolio/constants/Colors.dart';
+
 void main() {
-  WidgetsFlutterBinding.ensureInitialized(); 
-  Future.delayed(Duration(seconds: 4));
-  runApp( MainApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -13,12 +14,12 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      
-      home: Scaffold(
-        body: Center(
-          child: ScrollingPage(),
-        ),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: AppColors.scaffoldbg,
+        primaryColor: AppColors.primary,
+        // You can add more theme properties here if needed
       ),
+      home: ScrollingPage(),
     );
   }
 }

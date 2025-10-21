@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/Colors.dart';
 
 class SkillWidget extends StatelessWidget {
   final String imagePath;
@@ -16,17 +17,21 @@ class SkillWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double kwidth = MediaQuery.of(context).size.width;
     return Container(
+      decoration: BoxDecoration(
+        color: AppColors.bg1,
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(color: AppColors.primary.withOpacity(0.2)),
+      ),
       margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 1), // Margin around the container
       child: Row(
         children: [
           // Image inside a rounded container
           Container(
-            width: kwidth>700 ? 100:80, // Set width and height for the image container
-            height: kwidth>700 ? 100:80,
+            width: kwidth > 700 ? 100 : 80, // Set width and height for the image container
+            height: kwidth > 700 ? 100 : 80,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               border: Border.all(color: Colors.transparent),
-              
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0), // Padding inside the container
@@ -37,17 +42,21 @@ class SkillWidget extends StatelessWidget {
           // Title and Year
           Expanded(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   title,
-                  style: TextStyle(fontSize:kwidth>800 ? 18:16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: kwidth > 800 ? 18 : 16,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.text),
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 5),
                 Text(
                   year,
-                  style: TextStyle(color: Colors.grey, fontSize: 14),
+                  style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
                 ),
               ],
             ),

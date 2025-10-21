@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/Colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio/constants/Text_Styles.dart';
 
@@ -18,30 +19,31 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
   
   @override
   Widget build(BuildContext context) {
-  
-     return GestureDetector(
+    return InkWell(
       onTap: () {
         _showResumeOptionsDialog(context);
       },
-      child: MouseRegion(
-        onEnter: (_) => _updateHoverState(true),
-        onExit: (_) => _updateHoverState(false),
-        child: AnimatedSwitcher(
-          duration: Duration(milliseconds: 10),
-          switchInCurve: Curves.bounceIn,
-          switchOutCurve: Curves.bounceInOut,
-          child: _isHovered
-              ? Image.asset(
-                  'assets/images/resumevarient.png',
-                  key: ValueKey('hover'),
-                  fit: BoxFit.fill,
-                )
-              : Image.asset(
-                  'assets/images/resumebutton.png',
-                  key: ValueKey('default'),
-                  fit: BoxFit.fill,
-                ),
-        ),
+      onHover: (isHovering) {
+        _updateHoverState(isHovering);
+      },
+      hoverColor: Colors.transparent,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 200),
+        switchInCurve: Curves.easeIn,
+        switchOutCurve: Curves.easeOut,
+        child: _isHovered
+            ? Image.asset(
+                'assets/images/resumevarient.png',
+                key: const ValueKey('hover'),
+                fit: BoxFit.fill,
+              )
+            : Image.asset(
+                'assets/images/resumebutton.png',
+                key: const ValueKey('default'),
+                fit: BoxFit.fill,
+              ),
       ),
     );
   }
@@ -71,18 +73,12 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
             ),
             margin: EdgeInsets.symmetric(horizontal: isMobile ? 8 : 0),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFFFAF9F8),
-                  Color(0xFFF0EFF4),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
+              color: AppColors.bg1,
               borderRadius: BorderRadius.circular(isVerySmall ? 16 : 24),
+              border: Border.all(color: AppColors.primary.withOpacity(0.3)),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.15),
+                  color: AppColors.primary.withOpacity(0.1),
                   blurRadius: 30,
                   offset: Offset(0, 10),
                 ),
@@ -100,13 +96,8 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
                       vertical: isVerySmall ? 16 : (isMobile ? 20 : 24),
                     ),
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color.fromARGB(255, 241, 227, 248),
-                          Color.fromARGB(255, 245, 241, 227),
-                        ],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
+                      border: Border(
+                        bottom: BorderSide(color: AppColors.primary.withOpacity(0.3)),
                       ),
                     ),
                     child: Row(
@@ -121,7 +112,7 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
                                 'Select Resume',
                                 style: AppTextStyles.KjostBold.copyWith(
                                   fontSize: isVerySmall ? 18 : (isMobile ? 20 : 28),
-                                  color: Colors.black87,
+                                  color: AppColors.text,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
@@ -131,7 +122,7 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
                                 'Choose the resume that fits your needs',
                                 style: AppTextStyles.KjostRegular.copyWith(
                                   fontSize: isVerySmall ? 10 : (isMobile ? 11 : 14),
-                                  color: Colors.black54,
+                                  color: AppColors.textSecondary,
                                 ),
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
@@ -142,11 +133,12 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
                         SizedBox(width: 8),
                         Container(
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.8),
+                            color: AppColors.bg2,
                             shape: BoxShape.circle,
+                            border: Border.all(color: AppColors.primary.withOpacity(0.3)),
                           ),
                           child: IconButton(
-                            icon: Icon(Icons.close_rounded, color: Colors.black87),
+                            icon: Icon(Icons.close_rounded, color: AppColors.text),
                             iconSize: isMobile ? 20 : 24,
                             onPressed: () => Navigator.pop(context),
                             tooltip: 'Close',
@@ -208,12 +200,12 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
   }) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.bg2,
         borderRadius: BorderRadius.circular(isVerySmall ? 16 : 20),
-        border: Border.all(color: Colors.black.withOpacity(0.1), width: 1),
+        border: Border.all(color: AppColors.primary.withOpacity(0.2), width: 1),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: AppColors.primary.withOpacity(0.05),
             blurRadius: 20,
             offset: Offset(0, 4),
           ),
@@ -232,10 +224,10 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
                 Container(
                   padding: EdgeInsets.all(isVerySmall ? 8 : (isMobile ? 10 : 14)),
                   decoration: BoxDecoration(
-                    color: Colors.black87,
+                    color: AppColors.primary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon(icon, color: Colors.white, size: isVerySmall ? 20 : (isMobile ? 24 : 32)),
+                  child: Icon(icon, color: AppColors.primary, size: isVerySmall ? 20 : (isMobile ? 24 : 32)),
                 ),
                 SizedBox(width: isVerySmall ? 8 : 12),
                 Expanded(
@@ -247,7 +239,7 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
                         title,
                         style: AppTextStyles.KjostBold.copyWith(
                           fontSize: isVerySmall ? 13 : (isMobile ? 15 : 18),
-                          color: Colors.black87,
+                          color: AppColors.text,
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -257,7 +249,7 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
                         description,
                         style: AppTextStyles.KjostRegular.copyWith(
                           fontSize: isVerySmall ? 10 : (isMobile ? 11 : 14),
-                          color: Colors.black54,
+                          color: AppColors.textSecondary,
                         ),
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
@@ -269,7 +261,7 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
             ),
           ),
           
-          Divider(height: 1, color: Colors.black.withOpacity(0.1)),
+          Divider(height: 1, color: AppColors.primary.withOpacity(0.2)),
           
           // Action Buttons
           Padding(
@@ -319,10 +311,10 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
   }) {
     return Container(
       decoration: BoxDecoration(
-        color: isPrimary ? Colors.black87 : Colors.white,
+        color: isPrimary ? AppColors.primary : Colors.transparent,
         borderRadius: BorderRadius.circular(isVerySmall ? 10 : 12),
         border: Border.all(
-          color: Colors.black87,
+          color: AppColors.primary,
           width: 2,
         ),
       ),
@@ -343,7 +335,7 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
                 Icon(
                   icon,
                   size: isVerySmall ? 14 : (isMobile ? 16 : 20),
-                  color: isPrimary ? Colors.white : Colors.black87,
+                  color: isPrimary ? AppColors.text : AppColors.primary,
                 ),
                 SizedBox(width: isVerySmall ? 4 : (isMobile ? 6 : 8)),
                 Flexible(
@@ -351,7 +343,7 @@ class _CheckResumeButtonState extends State<CheckResumeButton> {
                     label,
                     style: AppTextStyles.KjostMedium.copyWith(
                       fontSize: isVerySmall ? 11 : (isMobile ? 13 : 15),
-                      color: isPrimary ? Colors.white : Colors.black87,
+                      color: isPrimary ? AppColors.text : AppColors.primary,
                     ),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
