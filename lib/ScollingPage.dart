@@ -5,6 +5,7 @@ import 'package:portfolio/Screens/AboutMe.dart';
 import 'package:portfolio/Screens/Home.dart';
 import 'package:portfolio/Screens/ProjectsPage.dart';
 import 'package:portfolio/Screens/SkillsPage.dart';
+import 'package:portfolio/constants/ScreenConstraints.dart';
 import 'package:portfolio/widgets/NavBar.dart';
 import 'package:portfolio/widgets/floatingactionbutton.dart';
 import 'package:rive/rive.dart';
@@ -29,22 +30,21 @@ class _ScrollingPageState extends State<ScrollingPage> {
   void _scrollToSection(GlobalKey key) {
     final context = key.currentContext;
     if (context != null) {
-      Scrollable.ensureVisible(context,
-          duration: Duration(milliseconds: 500),
-          curve: Curves.easeInOut);
+      Scrollable.ensureVisible(
+        context,
+        duration: Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    // media query for width and height
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xFFFFFFFF),
-
         floatingActionButton: SocialMediaFAB(),
         body: Stack(
           children: [
@@ -53,28 +53,29 @@ class _ScrollingPageState extends State<ScrollingPage> {
               top: 0,
               right: 0,
               child: SizedBox(
-                width: width * 0.3, // Adjust width
-                height: 300, // Fixed height for the animation
+                width: width * 0.3,
+                height: 300,
                 child: ImageFiltered(
-                  imageFilter: ImageFilter.blur(sigmaX: 80.0, sigmaY: 80.0), // Blur effect
+                  imageFilter: ImageFilter.blur(sigmaX: 80.0, sigmaY: 80.0),
                   child: RiveAnimation.asset(
                     'assets/gradients/backgroundgif.riv',
-                    fit: BoxFit.cover, // Proper scaling of the animation
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
             ),
+            
             Positioned(
               bottom: 0,
               left: 0,
               child: SizedBox(
-                width: width * 0.3, // Adjust width
-                height: 300, // Fixed height for the animation
+                width: width * 0.3,
+                height: 300,
                 child: ImageFiltered(
-                  imageFilter: ImageFilter.blur(sigmaX: 80.0, sigmaY: 80.0), // Blur effect
+                  imageFilter: ImageFilter.blur(sigmaX: 80.0, sigmaY: 80.0),
                   child: RiveAnimation.asset(
                     'assets/gradients/backgroundgif.riv',
-                    fit: BoxFit.cover, // Proper scaling of the animation
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -86,8 +87,10 @@ class _ScrollingPageState extends State<ScrollingPage> {
               left: 0,
               right: 0,
               child: Container(
-                color: Colors.transparent, // Slight transparency to blend with background
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                color: Colors.transparent,
+                padding: EdgeInsets.symmetric(
+                  vertical: Responsive.getValue(context, mobile: 12, tablet: 16, desktop: 16),
+                ),
                 child: NavBar(
                   onHomeTap: () => _scrollToSection(_homeKey),
                   onAboutMeTap: () => _scrollToSection(_aboutMeKey),
@@ -99,22 +102,27 @@ class _ScrollingPageState extends State<ScrollingPage> {
       
             // Scrollable content below the NavBar
             Positioned.fill(
-              top: 80, // Height of the fixed navbar
+              top: Responsive.getValue(context, mobile: 60, tablet: 70, desktop: 80),
               child: SingleChildScrollView(
                 controller: _scrollController,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Responsive.getValue(context, mobile: 8, tablet: 16, desktop: 24),
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Home(key: _homeKey), // Home widget with key
-                      SizedBox(height: 60),
-                      AboutMe(key: _aboutMeKey), // AboutMe widget with key
-                      SizedBox(height: 60),
-                      SkillsPages(key: _skillsKey), // SkillsPages widget with key
-                      SizedBox(height: 60),
-                      ProjectsPages(key: _projectsKey), // ProjectsPages widget with key
-                      SizedBox(height: 60),
+                      Home(key: _homeKey),
+                      SizedBox(height: Responsive.sectionSpacing(context)),
+                      
+                      AboutMe(key: _aboutMeKey),
+                      SizedBox(height: Responsive.sectionSpacing(context)),
+                      
+                      SkillsPages(key: _skillsKey),
+                      SizedBox(height: Responsive.sectionSpacing(context)),
+                      
+                      ProjectsPages(key: _projectsKey),
+                      SizedBox(height: Responsive.sectionSpacing(context)),
                     ],
                   ),
                 ),
