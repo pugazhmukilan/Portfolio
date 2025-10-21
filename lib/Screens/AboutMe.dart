@@ -26,7 +26,7 @@ class _AboutMeState extends State<AboutMe> {
           SizedBox(height:20),
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Image.asset("images/aboutme.png",scale:2),
+            child: Image.asset("assets/images/aboutme.png", scale: 2),
           ),
           
           
