@@ -20,7 +20,7 @@ class SocialMediaFAB extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center, // Align children to the right within the column
               children: [
-                SocialMediaWidget(icon:'assets/floating/leetcode.png',url:'https://leetcode.com/u/pugazhmukilanoffical2004/'),
+                SocialMediaWidget(icon:'assets/floating/leetcode.png',url:'https://leetcode.com/u/pugazh2004/'),
                 SocialMediaWidget(icon:'assets/floating/github.png',url:'https://github.com/pugazhmukilan'),
                 SocialMediaWidget(icon:'assets/floating/linkedin.png',url:'https://www.linkedin.com/in/pugazh-mukilan-922206251/'),
               ],

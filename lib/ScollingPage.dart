@@ -46,6 +46,16 @@ class _ScrollingPageState extends State<ScrollingPage> {
       child: Scaffold(
         backgroundColor: const Color(0xFFFFFFFF),
         floatingActionButton: SocialMediaFAB(),
+        // Add drawer for mobile navigation
+        endDrawer: Responsive.isMobile(context)
+            ? buildNavBarDrawer(
+                context: context,
+                onHomeTap: () => _scrollToSection(_homeKey),
+                onAboutMeTap: () => _scrollToSection(_aboutMeKey),
+                onSkillsTap: () => _scrollToSection(_skillsKey),
+                onProjectsTap: () => _scrollToSection(_projectsKey),
+              )
+            : null,
         body: Stack(
           children: [
             // Background animations at top right and bottom left

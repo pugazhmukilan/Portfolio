@@ -25,10 +25,20 @@ class _SkillsPagesState extends State<SkillsPages> {
     {'image': 'assets/icons/sklearn.png', 'title': 'Sklearn', 'year': '2024'},
     {'image': 'assets/icons/numpy.png', 'title': 'Numpy', 'year': '2024'},
     {'image': 'assets/icons/postgres.png', 'title': 'Postgres', 'year': '2024'},
+    {'image': 'assets/icons/fastapi.png', 'title': 'FastApi', 'year': '2024'},
     {'image': 'assets/icons/mlflow.png', 'title': 'ML Flow', 'year': '2025'},
     {'image': 'assets/icons/langchain.png', 'title': 'LangChain', 'year': '2025'},
-    {'image': 'assets/icons/fastapi.png', 'title': 'FastApi', 'year': '2024'},
     {'image': 'assets/icons/huggingface.png', 'title': 'HuggingFace', 'year': '2025'},
+    {'image': 'assets/icons/chromaDB.png', 'title': 'ChromaDB', 'year': '2025'},
+    {'image': 'assets/icons/crewai.png', 'title': 'CrewAI', 'year': '2025'},
+    {'image': 'assets/icons/DeepLearning.png', 'title': 'Deep Learning', 'year': '2025'},
+    {'image': 'assets/icons/langgraph.png', 'title': 'LangGraph', 'year': '2025'},
+    {'image': 'assets/icons/LLM.png', 'title': 'LLM', 'year': '2025'},
+    {'image': 'assets/icons/Machine Learning.png', 'title': 'Machine Learning', 'year': '2025'},
+    {'image': 'assets/icons/MongoDB.png', 'title': 'MongoDB', 'year': '2025'},
+    {'image': 'assets/icons/Ollama.png', 'title': 'Ollama', 'year': '2025'},
+    {'image': 'assets/icons/RAG.png', 'title': 'RAG', 'year': '2025'},
+    {'image': 'assets/icons/StreamLit.png', 'title': 'StreamLit', 'year': '2025'},
   ];
 
   @override
