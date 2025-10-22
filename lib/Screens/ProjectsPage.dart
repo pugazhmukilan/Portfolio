@@ -16,42 +16,42 @@ class _ProjectsPagesState extends State<ProjectsPages> {
   final List<Map<String, dynamic>> projects = [
     // New AI/ML Projects
     {
-      'image': "assets/icons/github.png", // Will show GitHub fallback
+      'image': "assets/images/blank.png", // Will show GitHub fallback
       'title': 'MCP-FlutterDoc: Intelligent Flutter Documentation Assistant',
       'content': 'A Model Context Protocol (MCP) server that brings Flutter documentation and community solutions directly into Claude Desktop. It merges official references and Stack Overflow insights to deliver instant, contextually relevant answers for Flutter developers.',
       'tags': ['Python', 'JSON-RPC 2.0', 'MCP Protocol', 'REST APIs'],
       'link': 'https://github.com/pugazhmukilan/MCP-FlutterDoc',
     },
     {
-      'image': "assets/icons/github.png",
+      'image': "assets/images/blank.png",
       'title': 'InterviewQuestion-GeneratorAI: Smart Study & Interview Companion',
       'content': 'A Generative AI application that transforms academic or professional PDFs into fully prepared interview question-answer sets. Designed for students and recruiters, it uses Google\'s Gemini model to extract, chunk, and refine context-aware questions.',
       'tags': ['Python', 'Streamlit', 'LangChain', 'Google Gemini', 'FAISS'],
       'link': 'https://github.com/pugazhmukilan/InterviewQuestion-GeneratorAI',
     },
     {
-      'image': "assets/icons/github.png",
+      'image': "assets/images/blank.png",
       'title': 'KuripAPI: AI-Powered Recipe Generation Engine',
       'content': 'A creative culinary AI API that generates personalized recipes based on ingredients users already have. Built with FastAPI and integrated into a Flutter frontend, KuripAPI bridges AI and daily life—making home cooking effortless and intelligent.',
       'tags': ['Python', 'FastAPI', 'Flutter', 'AI/ML', 'REST APIs'],
       'link': 'https://github.com/pugazhmukilan/KuripAPI',
     },
     {
-      'image': "assets/icons/github.png",
+      'image': "assets/images/blank.png",
       'title': 'AI-Expense-Tracker: Intelligent Financial Management',
       'content': 'A sleek Flutter + Node.js expense management app infused with Google Gemini AI. It auto-categorizes expenses, analyzes spending habits, and produces predictive insights for future budgeting—redefining personal finance through AI.',
       'tags': ['Flutter', 'Node.js', 'Google Gemini AI', 'PostgreSQL', 'JWT Auth'],
       'link': 'https://github.com/pugazhmukilan/AI-Expense-Tracker',
     },
     {
-      'image': "assets/icons/github.png",
+      'image': "assets/images/blank.png",
       'title': 'Sarcasm-Detection-Robust-NLP: Understanding Human Intent',
       'content': 'An advanced NLP and deep learning model that detects sarcasm in social posts and news headlines. Built with BiLSTM architectures, it teaches machines to recognize subtle emotional contradictions—a breakthrough for sentiment analysis.',
       'tags': ['Python', 'TensorFlow', 'Keras', 'NLTK', 'BiLSTM'],
       'link': 'https://github.com/pugazhmukilan/Sarcasm-Detection-Robust-NLP',
     },
     {
-      'image': "assets/icons/github.png",
+      'image': "assets/images/blank.png",
       'title': 'NeuroBrush-CycleGAN: Artistic Neural Style Transfer',
       'content': 'A visually stunning application of CycleGAN technology that turns real-world images into artworks inspired by painters like Van Gogh or Monet. Demonstrates mastery over computer vision and generative models, fusing deep learning with creativity.',
       'tags': ['Python', 'PyTorch', 'CycleGAN', 'Computer Vision', 'Deep Learning'],

@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             child: CircleAvatar(
-              radius: Responsive.getValue(context, mobile: 80, tablet: 120, desktop: 150),
+              radius: Responsive.getValue(context, mobile: 80, tablet: 100, desktop: 130),
               backgroundColor: Colors.transparent,
               backgroundImage: AssetImage("assets/images/meImagesmall.png"),
             ),

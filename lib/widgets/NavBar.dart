@@ -8,6 +8,7 @@ class NavBar extends StatefulWidget {
   final VoidCallback onAboutMeTap;
   final VoidCallback onSkillsTap;
   final VoidCallback onProjectsTap;
+  final VoidCallback onContactTap;
 
   const NavBar({
     super.key,
@@ -15,6 +16,7 @@ class NavBar extends StatefulWidget {
     required this.onAboutMeTap,
     required this.onSkillsTap,
     required this.onProjectsTap,
+    required this.onContactTap,
   });
 
   @override
@@ -55,6 +57,7 @@ class _NavBarState extends State<NavBar> {
               NavButton(onPressed: widget.onAboutMeTap, text: 'About Me'),
               NavButton(onPressed: widget.onSkillsTap, text: 'Skills'),
               NavButton(onPressed: widget.onProjectsTap, text: 'Projects'),
+              NavButton(onPressed: widget.onContactTap, text: 'Contact'),
             ],
           ),
         ),
@@ -126,6 +129,7 @@ Widget buildNavBarDrawer({
   required VoidCallback onAboutMeTap,
   required VoidCallback onSkillsTap,
   required VoidCallback onProjectsTap,
+  required VoidCallback onContactTap,
 }) {
   return Drawer(
     child: Container(
@@ -184,6 +188,15 @@ Widget buildNavBarDrawer({
             onTap: () {
               Navigator.pop(context);
               onProjectsTap();
+            },
+          ),
+          _buildNavDrawerItem(
+            context: context,
+            icon: Icons.email,
+            text: 'Contact',
+            onTap: () {
+              Navigator.pop(context);
+              onContactTap();
             },
           ),
         ],

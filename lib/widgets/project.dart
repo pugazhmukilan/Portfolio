@@ -197,7 +197,7 @@ class _ProjectState extends State<Project> {
                                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
                               ),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.primary,
+                                backgroundColor: const Color.fromARGB(255, 13, 27, 48),
                                 foregroundColor: AppColors.text,
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                                 padding: EdgeInsets.zero,

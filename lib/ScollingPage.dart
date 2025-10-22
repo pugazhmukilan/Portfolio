@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/Screens/AboutMe.dart';
+import 'package:portfolio/Screens/ContactPage.dart';
 import 'package:portfolio/Screens/Home.dart';
 import 'package:portfolio/Screens/ProjectsPage.dart';
 import 'package:portfolio/Screens/SkillsPage.dart';
@@ -22,6 +23,7 @@ class _ScrollingPageState extends State<ScrollingPage> {
   final GlobalKey _aboutMeKey = GlobalKey();
   final GlobalKey _skillsKey = GlobalKey();
   final GlobalKey _projectsKey = GlobalKey();
+  final GlobalKey _contactKey = GlobalKey();
   
   final ScrollController _scrollController = ScrollController();
 
@@ -53,6 +55,7 @@ class _ScrollingPageState extends State<ScrollingPage> {
                 onAboutMeTap: () => _scrollToSection(_aboutMeKey),
                 onSkillsTap: () => _scrollToSection(_skillsKey),
                 onProjectsTap: () => _scrollToSection(_projectsKey),
+                onContactTap: () => _scrollToSection(_contactKey),
               )
             : null,
         body: Stack(
@@ -74,6 +77,7 @@ class _ScrollingPageState extends State<ScrollingPage> {
                   onAboutMeTap: () => _scrollToSection(_aboutMeKey),
                   onSkillsTap: () => _scrollToSection(_skillsKey),
                   onProjectsTap: () => _scrollToSection(_projectsKey),
+                  onContactTap: () => _scrollToSection(_contactKey),
                 ),
               ),
             ),
@@ -100,6 +104,9 @@ class _ScrollingPageState extends State<ScrollingPage> {
                       SizedBox(height: Responsive.sectionSpacing(context)),
                       
                       ProjectsPages(key: _projectsKey),
+                      SizedBox(height: Responsive.sectionSpacing(context)),
+                      
+                      ContactPage(key: _contactKey),
                       SizedBox(height: Responsive.sectionSpacing(context)),
                     ],
                   ),

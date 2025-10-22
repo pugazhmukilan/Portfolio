@@ -8,8 +8,11 @@ environment:
 
 dependencies:
   dio: ^5.8.0+1
+  
   flutter:
     sdk: flutter
+  http: ^1.2.0
+  mailer: ^6.1.2
   marquee_list: ^1.0.0
   path_provider: ^2.1.5
   rive: ^0.13.13
