@@ -27,18 +27,3 @@ class _GradientTextOnHoverState extends State<GradientTextOnHover> {
 
   
 }
-/* TextStyle(
-                fontSize: widget.hoverSize,
-                fontWeight: FontWeight.bold,
-                foreground: Paint()
-                  ..shader = const LinearGradient(
-                    colors: <Color>[
-                      Colors.pink,
-                      Colors.orange,
-                    ],
-                  ).createShader(const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0)),
-              )
-            : TextStyle(
-                fontSize: widget.normalSize,
-                fontWeight: FontWeight.bold,
-                color: Colors.white, // Set a de*/
