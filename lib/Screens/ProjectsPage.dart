@@ -57,6 +57,13 @@ class _ProjectsPagesState extends State<ProjectsPages> {
       'tags': ['Python', 'PyTorch', 'CycleGAN', 'Computer Vision', 'Deep Learning'],
       'link': 'https://github.com/pugazhmukilan/NeuroBrush-CycleGAN',
     },
+    {
+      'image': 'assets/images/fluxapp.png',
+      'title': 'FLUX',
+      'content': 'FLUX isn\'t just another habit tracker; it\'s a visual journey of your commitment. Built with a clean, minimalist aesthetic, FLUX helps you focus on what truly matters: building consistent, positive habits. With its unique streak-based system and an elegant UI, it transforms self-improvement into a rewarding and beautiful experience. Track your progress, celebrate your milestones, and watch your habits flourish with FLUX.',
+      'tags': ['Flutter', 'Habit Tracker', 'UI/UX', 'Streaks'],
+      'link': 'https://github.com/pugazhmukilan/FLUX-HabitStreakFlutterApp',
+    },
     
     // Original Projects
     {

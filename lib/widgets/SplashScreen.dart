@@ -35,6 +35,7 @@ class _SplashScreenState extends State<SplashScreen>
     'assets/images/resumevarient.png',
     'assets/images/resumebutton.png',
     'assets/images/blank.png',
+    'assets/images/fluxapp.png',
   ];
 
   @override
