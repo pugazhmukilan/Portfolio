@@ -14,6 +14,13 @@ class ProjectsPages extends StatefulWidget {
 class _ProjectsPagesState extends State<ProjectsPages> {
   // List of projects
   final List<Map<String, dynamic>> projects = [
+    {
+      'image': 'assets/images/kiptposter.png',
+      'title': 'Kipt - Smart Warranty & Asset Manager',
+      'content': 'Your personal offline-first vault for managing product warranties, bills, receipts, and rental assets. Features include warranty tracking, digital bill storage, smart notifications, and biometric security.',
+      'tags': ['Flutter', 'Dart', 'Hive', 'Offline-First', 'Biometrics'],
+      'link': 'https://github.com/pugazhmukilan/kipt-warranty-vault',
+    },
     // New AI/ML Projects
     {
       'image': "assets/images/blank.png", // Will show GitHub fallback
